@@ -1,39 +1,9 @@
 # -*- coding: utf-8 -*-
-# sample = ['AGT','AGCTT']
-
-# sample = [
-#     'ASLNGTLMQYFEWYMPNDGQHWKRLQNDSAYLAEHGITAVWIPPAYKGTSQDDVGYGAYDLYDLGEFHQKGTVRTKYGTKGELQSAINSLHSRDINVYGDVVINHKGGADATEYVTAVEVDPADRNRVTSGEQRIKAWTHFQFPGRGSTYSDFKWYWYHFDGTDWDESRKLNRIYKFQGKAWDWEVSNENGNYDYLMYADIDYDHPDVTAEIKRWGTWYANELQLDGFRLDAVKHIKFSFLRDWVNHVREKTGKEMFTVAEYWQNDLGALENYLNKTNFNHSVFDVPLHYQFHAASTQGGGYDMRKLLNGTVVSKHPVKAVTFVDNHDTQPGQSLESTVQTWFKPLAYAFILTREAGYPQIFYGDMYGTKGASQREIPALKHKIEPILKARKQYAYGAQHDYFDHHNIVGWTREGDSSVANSGLAALITDGPGGTKRMYVGRQNAGETWHDITGNRSDSVVINAEGWGEFHVNGGSVSIYVQR',
-#     'ASLNGTLMQYFEWYMPNDGQHWKRLQNDSAYLAEHGITAVWIPPAYKGTSQDDVGYGAYDLYDLGEFHQKGTVRTKYGTKGELQSAINSLHSRDINVYGDVVINHKGGADATEYVTAVEVDPADRNRVTSGEQRIKAWTHFQFPGRGSTYSDFKWYWYHFDGTDWDESRKLNRIYKFQGKAWDWEVSNENGNYDYLMYADIDYDHPDVTAEIKRWGTWYANELQLDGFRLDAVKHIKFSFLRDWVNHVREKTGKEMFTVAEYWQNDLGALENYLNKTNFNHSVFDVPLHYQFHAASTQGGGYDMRKLLNGTVVSKHPVKAVTFVDNHDTQPGQSLESTVQTWFKPLAYAFILTREAGYPQIFYGDMYGTKIPALKHKIEPILKARKQYAYGAQHDYFDHGASQREHNIVGWTREGDSSVANSGLAALITDGPGGTKRMYVGRQNAGETWHDITGNRSDSVVINAEGWGEFHVNGGSVSIYVQR'
-# ]
-sample = [
-    'MVTTFVALYDYESRTETDLSFKKGERLQIVNNTEGDWWLAHSLSTGQTGYIPSNYVAPSDSIQAEEWYFGKITRRESERLLLNAENPRGTFLVRESETTKGAYCLSVSDFDNAKGLNVKHYKIRKGQTGYIPSDVGYGAYDLYDLGEFHQKGTLDSGGFYITSRTQFNSLQQLVAYYSKHADGLCHRLTTVCPTSKPQTQGLAKDAWEIPRESLRLEVKLGQGCFGEVWMGTWNGTTRVAIKTLKPGTMSPEAFLQEAQVMKKLRHEKLVQLYAVVSEEPIYIVTEYMSKGSLLDFLKGETGKYLRLPQLVDMAAQIASGMAYVERMNYVHRDLRAANILVGENLVCKVADFGLARLIEDNEYTARQGAKFPIKWTAPEAALYGRFTIKSDVWSFGILLTELTTKGRVPYPGMVNREVLDQVERGYRMPCPPECPESLHDLMCQCWRKEPEERPTFEYLQAFLEDYFTSTEPQYQPGENL',
-    'AMVTTFVALYDYESRTETDLSFKKGELQIVNNTEGDWWLAHSPPGQTGYIPSDVGYGAYDLYDLGEFHQKGTVRRESERLLLELQSAINSLHSRINVYGDVVINHKGGADATEYVTAVEVDPADRNRVTSGEQRIKAWTHFQFPGRGSTYSDFKWYWYHFDGCPTKPQTQGLAKDAWEIPRESVSNENGNYDYLMADIDYDHPDVTVAIKTLKPGTMSPEAFLQAQVMKKHIKFSFLRDWNHVREKTGKEMFTVAEGSLLDFLKGETGKYLRLPTNFNHSVFDVPLHYQFHAASTQGGGYDMRKLLNGENLVCKVKAVTFVDNHDTQPGQSLESTVQTWFKPLAYAFILTREAGYPQIFYGDMYGTKIPALKHKIEPILKARKQYAYGAQHDYFDHGASQRYPGMVNREVLDVERGYRMITDGPGGTKRMYVGQNAGETWHDITGNRSDSVVINAEGWGDYFTSTEPQYPGENLR'
-]
-PAM_amino = ['C','S','T','P','A','G','N','D','E','Q','H','R','K','M','I','L','V','F','Y','W']
-PAM_score = [[12],
-            [0,2],
-            [-2,0,3],
-            [-3,1,0,5],
-            [-2,1,1,1,2],
-            [-3,1,0,-1,1,5],
-            [-4,1,0,-1,0,0,2],
-            [-5,0,0,-1,0,1,2,4],
-            [-5,0,0,-1,0,0,1,3,4],
-            [-5,-1,-1,0,0,-1,1,2,2,4],
-            [-3,-1,-1,0,-1,-2,2,1,1,3,6],
-            [-4,0,-1,0,-2,-3,0,-1,-1,1,2,6],
-            [-5,0,0,-1,-1,-2,1,0,0,1,0,3,5],
-            [-5,-2,-1,-2,-1,-3,-2,-3,-2,-1,-2,0,0,5],
-            [-2,-1,0,-2,-1,-3,-2,-2,-2,-2,-2,-2,-2,2,5],
-            [-6,-3,-2,-3,-2,-4,-3,-4,-3,-2,-2,-3,-3,4,2,6],
-            [-2,-1,0,-1,0,-1,-2,-2,-2,-2,-2,-2,-2,2,4,2,4],
-            [-4,-3,-3,-5,-4,-5,-4,-5,-5,-5,-2,-4,-5,0,1,2,-1,9],
-            [0,-3,-3,-5,-3,-5,-2,-4,-4,-4,0,-4,-4,-2,-1,-1,-2,7,10],
-            [-8,-2,-5,-6,-6,-7,-4,-7,-7,-5,-3,2,-3,-4,-2,-2,-6,0,0,17]
-            ]
-# PAM_score[長い方][短い方]で検索
+sample = ['AGT','AGCTT']
+# sample = ['AGCTTGGGTTTTTTT','AGCTTGGGTTTGGGGTTTT']
 
 def alignment(aminos, result_array):
+    print(result_array)
     amino_a = aminos[0]
     amino_b = aminos[1]
     alignment_s = []
@@ -57,7 +27,8 @@ def alignment(aminos, result_array):
     alignment = [alignment_s, alignment_l]
     return alignment
 
-def alignment_result(node_num_array, aminos):
+def alignment_result(node_num_array, aminos):   
+    print(node_num_array)
     result_array = []
     pre_node = node_num_array[0]
     counter = 0
@@ -75,14 +46,7 @@ def alignment_result(node_num_array, aminos):
         if (counter + 1) == len(node_num_array):
             break
     res = alignment(aminos, result_array)
-    print('アライメント後：')
-    RES_0 = ''.join(res[0])
-    RES_1 = ''.join(res[1])
-    print(RES_0)
-    print("*"*180)
-    print(RES_1)
-    # print(join(res[0]))
-    # print(join(res[1]))
+    print('アライメント後：', res)
 
 def  make_optimal_path(arg, node_data, aminos):
     next_node = arg[-1][-1]
@@ -109,16 +73,17 @@ def  make_optimal_path(arg, node_data, aminos):
                 all_ways.append(a[0] + [a[1]])
 
         route_path = all_ways
+    print("AAAAAAAAAAAAAAAAAAAAAAA")
+    print(all_ways)
+    max_node_num = node_data['max_node_num'] 
     if type(all_ways[0]) == list: #複数経路がある場合
-        way = all_ways[0]
-        way.reverse()
-        way.append(node_data['max_node_num'])
-        alignment_result(way, aminos)
-        # for way in all_ways:
-        #     way.reverse()
-        #     way.append(node_data['max_node_num'])
-        #     alignment_result(way, aminos)
+        for way in all_ways:
+            # way = list(map(lambda x: x+1, way))
+            way.reverse()
+            way.append(node_data['max_node_num'])
+            alignment_result(way, aminos)
     else:
+        # all_ways = list(map(lambda x: x+1, all_ways))
         all_ways.reverse()
         all_ways.append(node_data['max_node_num'])
         alignment_result(all_ways, aminos)
@@ -142,16 +107,10 @@ def check_score_and_prenode(arg, aminos): # ["最大スコア", "ノード番号
                 diagonal = arg[rows_counter - 2][simple_counter - 1]
                 top = arg[rows_counter - 2][simple_counter]
 
-                # PAMのスコアを使う
-                index_a = amino_height[rows_counter - 2]
-                index_b = amino_width[simple_counter - 1]
-                index_a_number = PAM_amino.index(index_a)
-                index_b_number = PAM_amino.index(index_b)
-                if index_a_number >= index_b_number:
-                    gap = PAM_score[index_a_number][index_b_number]
+                if amino_height[rows_counter - 2] == amino_width[simple_counter - 1]:
+                    gap = 1 #　一致した時
                 else:
-                    gap = PAM_score[index_b_number][index_a_number]
-                # ここまで
+                    gap = -2 #　一致していない時
 
                 if (left[2][0] is None) and (left[2][1] is None):
                     from_left = None
@@ -195,24 +154,19 @@ def check_score_and_prenode(arg, aminos): # ["最大スコア", "ノード番号
             simple_counter = simple_counter + 1
 
     big_arg = [] # ノードの情報だけを抽出
-    total_score = arg[-1][-1][0]
-    print("================================ここまでの総計スコアは:", total_score, "です==========================================")
     for ar in arg:
         node_score_arg = []
         for a in ar:
             node_score_arg.extend([a[1]])
         big_arg.extend([node_score_arg])
     arg = big_arg
-    # print(node_data)
     make_optimal_path(arg, node_data, aminos)
 
 
 def make_array(arg):
     arg1 = list(arg[0])
     arg2 = list(arg[1])
-    # print('アライメント前：')
-    # print(arg1)
-    # print(arg2)
+    print('アライメント前：', arg1, arg2)
     arg_amino = [arg1, arg2]
     l = [None] * len(arg2)
     width = len(arg2) + 1
@@ -237,8 +191,8 @@ def make_array(arg):
         counter = counter + 1
         row_counter = row_counter + 1
     simple_array[0] = first_array
-    # for i in simple_array:
-    #     print(i)
+    for i in simple_array:
+        print(i)
     check_score_and_prenode(simple_array, arg_amino)
 
 make_array(sample)

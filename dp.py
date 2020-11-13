@@ -3,6 +3,7 @@ sample = ['AGCT','AGT']
 # sample = ['AGTFYUKKPB', 'AGCT']
 #sample = ['AGTUT', 'AGCTTT']
 #sample = ['AGTT', 'AGCT']
+
 def alignment(aminos, result_array):
     amino_a = aminos[0]
     amino_b = aminos[1]
@@ -29,6 +30,7 @@ def alignment(aminos, result_array):
 
 def alignment_result(node_num_array, aminos):
     result_array = []
+    print("node_num_arrayは", node_num_array)
     pre_node = node_num_array[0]
     counter = 0
     width = len(aminos[1]) + 1
